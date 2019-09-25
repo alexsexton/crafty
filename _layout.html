@@ -15,7 +15,7 @@
 
 <body class="{% if templateName is defined %}{{ templateName }}{% else %}default-layout{% endif %}">
 
-  {% if craft.config.devMode %}
+  {% if devMode %}
   <div class="dev-mode">Craft is running in Dev Mode.</div>
   {% endif %}
 
