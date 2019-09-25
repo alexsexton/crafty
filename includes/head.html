@@ -3,9 +3,8 @@
 
   <title>{{ siteName }}{% if  entry.title is defined %} / {{ entry.title }} {% elseif title is defined %} / {{ title }}{% endif %}</title>
 
-  {% if siteInformation.metaDescription %}
-    <meta name="description" content="{{ siteInformation.metaDescription }}">
-  {% endif %}
+
+  <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -24,12 +23,11 @@
   {% if entry.title is defined %}
   <meta property="og:title" content="{{ entry.title }}">
   <meta property="og:url" content="{{ entry.url }}">
-  {% elseif  entry.url is defined %}
+  {% elseif entry.url is defined %}
   <meta property="og:url" content="{{ entry.url }}">
   {% endif %}
-  {% if siteInformation.metaDescription %}
-  <meta property="og:description" content="{{ siteInformation.metaDescription }}">
-  {% endif %}
+  <meta property="og:description" content="">
+
   <meta property="og:site_name" content="{{ siteName }}">
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ siteUrl }}static/apple-touch-icon.png">
