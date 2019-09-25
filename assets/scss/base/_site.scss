@@ -1,0 +1,27 @@
+// Site
+html {
+  background: $body-background;
+  color: $base-font-colour;
+}
+
+div, section, header, footer, main, aside {
+  box-sizing: border-box;
+}
+
+// Utilities
+.hide {
+  @include hide;
+}
+
+.group::before,
+.main::before,
+.group::after,
+.main::after {
+    content: " ";
+    display: table;
+}
+
+.group::after,
+.main::after {
+    clear: both;
+}

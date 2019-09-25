@@ -1,0 +1,45 @@
+{
+  "name": "crafty",
+  "version": "1.0.1",
+  "description": "Basic craft starting point",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "autoprefixer": "^9.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-deporder": "^1.2.0",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-modernizr": "^3.3.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-uglify": "^3.0.2",
+    "install": "^0.13.0",
+    "npm": "^6.11.3",
+    "postcss-assets": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexsexton/crafty.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 2%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "author": "LineaDigital",
+  "license": "GPL-3.0-or-later"
+}

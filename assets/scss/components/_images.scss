@@ -1,0 +1,6 @@
+img {
+  @include image;
+  @media screen and (max-width: $small-screen) {
+    width: 100%;
+  }
+}

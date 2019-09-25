@@ -1,0 +1,242 @@
+// Resets / Global form styles
+
+input, textarea, fieldset, label, legend, select, button {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+textarea {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: $border-size solid $input-border-colour;
+  border-radius: 0;
+  color: $base-font-colour;
+  font-family: inherit;
+  font-size: $base-font-size;
+  @media screen and (max-width: $small-screen) {
+    font-size: $small-screen-font-size;
+  }
+  font-weight: $normal;
+  margin: 0;
+  outline: 0;
+  padding: $spacer 0;
+  transition: all $trans-time ease-in-out;
+  width: 100%;
+  z-index: 2;
+
+  &:focus {
+    border-color: $input-border-colour-focus;
+  }
+}
+
+input[type="number"] {
+  padding: $halfspacer 0;
+}
+
+input[data-state="valid"] {
+  border-color: $input-border-colour-focus;
+}
+
+textarea {
+  border: $border-size solid $input-border-colour;
+}
+
+input[type="number"] {
+  width: $spacer3;
+}
+
+// Hide placehold text
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder,
+input::placeholder,
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder,
+textarea::placeholder {
+  color: $white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: $white;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: $base-font-colour;
+    background: $white;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+
+  legend {
+    width: 100%;
+  }
+}
+
+textarea {
+  padding: $spacer;
+  resize: none;
+}
+
+// Radios
+input[type=radio] {
+  appearance: none;
+  background: $white;
+  border-radius: 50%;
+  border: 1px solid $black;
+  height: 18px;
+  margin-right: $spacer;
+  position: relative;
+  top: 3px;
+  width: 18px;
+
+  &:checked, &:active {
+    background: $black;
+  }
+}
+
+// Checkboxes
+input[type=checkbox] {
+  appearance: none;
+  background: $white url("#{$image-path}/checkbox.svg") no-repeat 100% 0;
+  height: 18px;
+  margin-right: $spacer;
+  position: relative;
+  top: 3px;
+  width: 18px;
+
+  &:checked {
+    background: $white url("#{$image-path}/checkbox.svg") no-repeat 100% 100%;
+  }
+}
+
+// Selects
+select {
+  appearance: none;
+  background: $white url("#{$image-path}/arrow-down.svg") no-repeat 100% 50%;
+  border: none;
+  font-family: inherit;
+  font-size: $base-font-size;
+  @media screen and (max-width: $small-screen) {
+    font-size: $small-screen-font-size;
+  }
+  font-weight: $normal;
+  outline: 0;
+  padding-right: 20px;
+  position: relative;
+}
+
+// Buttons
+.button {
+  @include button;
+  @media screen and (max-width: $small-screen) {
+    padding: $spacer;
+    width: 100%;
+  }
+  @media screen and (max-width: $medium-screen) {
+    padding-left: $spacer2;
+    padding-right: $spacer2;
+  }
+}
+
+.button--small {
+  @include button-small;
+  @media screen and (max-width: $small-screen) {
+    padding-left: $spacer;
+    padding-right: $spacer;
+  }
+}
+
+.button:hover {
+  border: 2px solid $button;
+  background: $button-hover;
+  color: $button-hover-text;
+}
+
+.button:active, .button:focus {
+  border: 2px solid $button;
+  background: $button-hover;
+  color: $button-hover-text;
+}
+
+.button:disabled, .button:hover:disabled,
+.button.disabled {
+  background: $button-inactive;
+  border: 2px solid $button-inactive;
+  cursor: default;
+  color: $button-text;
+  @media screen and (max-width: $small-screen) {
+  margin-bottom: $spacer2;
+  }
+}
+
+// Labels
+.form-group label,
+.form-row label {
+  display: block;
+  padding: 0 0 $spacer 0;
+}
+
+// Legends
+.form-group legend,
+.form-row legend  {
+  display: block;
+  padding: 0 0 $spacer 0;
+}
+
+.form-group em, .form-row em {
+  display: block;
+  font-size: $small-font-size;
+  color: $medium-grey;
+  font-style: normal;
+}
+
+.form-group, .form-row, .form-buttons {
+  margin: 0 0 $spacer2 0;
+@media screen and (max-width: $small-screen) {
+  margin: 0 0 0 0;
+  }
+}
+
+.form-group .required span, .form-row .required span {
+  font-size: $small-font-size;
+}
+
+.form-error {
+  padding: $spacer;
+  background: scale-color($error, $lightness: 50%);
+}
+
+.form-error input[type=text] {
+  border-color: $error;
+}
+
+.form-error span {
+  font-weight: $bold;
+}

@@ -1,0 +1,113 @@
+// Global Variables
+
+// Paths. Use like this in css url("#{$image-path}/image.svg");
+$image-path: "../static/images";
+$font-path: "../static/fonts";
+
+// Spacers
+$spacer: 1rem;
+$halfspacer: $spacer / 2;
+$spacer2: $spacer * 2;
+$spacer3: $spacer * 3;
+$spacer4: $spacer * 4;
+$spacer5: $spacer * 5;
+$spacer6: $spacer * 6;
+$spacer7: $spacer * 7;
+$spacer8: $spacer * 8;
+$spacer9: $spacer * 9;
+$spacer10: $spacer * 10;
+$spacer15: $spacer * 15;
+
+// Site Width
+$site-max-width: 1925px; // 1795px (12 col grid  (90px cols 65px gutters) + site gutters * 2 (130px))
+$site-gutters: 3.3766%;
+
+// Breakpoints
+$huge-screen: 1440px; // Large desktop screens
+$big-screen: 1024px;
+$medium-screen-min: 961px;
+$medium-screen: 960px;
+$small-screen-min: 795px;
+$small-screen: 794px;
+$tiny-screen: 360px;
+
+// Margins & Padding
+$margin: $spacer2;
+$padding: $spacer2;
+$small-padding: $spacer;
+
+// Colours - from tachyons palette
+
+// Errors
+$highlight: $yellow;
+$error: #840003;
+
+// Grey Scale
+$black: #231f20;
+$dark-grey: #696969;
+$medium-grey: #919191;
+$light-grey: #d4d4d4;
+$lightest-grey: #f6f2f7;
+$white: #fff;
+
+// Base Site
+$base-font-colour: $black;
+$body-background: $white;
+
+// Brand
+$brand-primary: $black;
+$brand-secondary: #e5e1e6;
+$brand-tertiary: #840003;
+
+// Linkage
+$link-colour: $brand-primary;
+$link-hover-colour: $brand-tertiary;
+
+// Buttons
+$button: $brand-primary;
+$button-text: $white;
+$button-hover: $white;
+$button-hover-text: $black;
+$button-inactive: $light-grey;
+
+// Label
+
+// Tables
+$table-borders: $light-grey;
+
+// Borders
+$border-colour: $light-grey;
+$border-radius: 0px;
+$border-size: 2px;
+$input-border-colour: $light-grey;
+$input-border-colour-focus: $brand-primary;
+
+// Typography
+$font-family-sans: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-family-serif: "Georgia", Times,Serif;
+$base-font-size: 1rem;
+$base-line-height: 1.75;
+$heading: $base-font-size * 1.5;
+$medium-heading: $base-font-size * 1.25;
+$heading-line-height: 1.4;
+$small-font-size: 0.8rem;
+$small-screen-font-size: 0.9rem;
+$small-screen-heading-size: 1.2rem;
+$print-font-size: $small-screen-font-size;
+$measure: 54rem;
+$bold: 500;
+$skinny: 100;
+$normal: $skinny;
+
+// Transitions
+$trans-time: 200ms;
+
+// Modules
+$huge-screen-module-top-padding: $spacer15;
+$module-top-padding: $spacer7;
+$small-screen-module-top-padding: $spacer + $halfspacer;
+$small-screen-module-top-larger-padding: $spacer3 + $halfspacer;
+
+// Overlays
+$overlay-top: 122px;
+$m-overlay-top: 66px;

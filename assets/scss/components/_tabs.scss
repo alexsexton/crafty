@@ -1,0 +1,26 @@
+// Tabs
+
+.tabs {
+  margin: $spacer2 0 0;
+  z-index: 2;
+  position: relative;
+  top: 1px;
+
+  li {
+    display: inline-block;
+    padding: $halfspacer $spacer;
+    border: 1px solid $black;
+    border-bottom-color: $black;
+    margin-right: $spacer;
+
+    &.active {
+      border-bottom-color: $white;
+    }
+
+  }
+}
+
+.panel {
+  border-top: 1px solid $black;
+  padding-top: $spacer;
+}

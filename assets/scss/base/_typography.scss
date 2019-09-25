@@ -1,0 +1,187 @@
+// Fonts
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: $base-font-size;
+    @media screen and (max-width: $small-screen) {
+      font-size: $small-screen-font-size;
+    }
+  font-weight: 100;
+  line-height: $base-line-height;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-sans;
+  font-size: $base-font-size;
+  @media screen and (max-width: $small-screen) {
+    font-size: $small-screen-font-size;
+  }
+  font-weight: $bold;
+  margin: 0 0 $spacer;
+}
+
+h1, h2  {
+  line-height: $heading-line-height;
+  font-size: $heading;
+  @media screen and (max-width: $small-screen) {
+    font-size: $small-screen-heading-size;
+  }
+}
+
+h6 {
+  font-weight: $skinny;
+}
+
+p {
+  margin: 0 0 $spacer;
+}
+
+a {
+  text-decoration: none;
+  color: $link-colour;
+  outline: none;
+  font-weight: $bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $link-hover-colour;
+}
+
+small {
+  font-size: $small-font-size;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+dl, dt, dd {
+  padding: 0;
+  margin: 0;
+}
+
+strong {
+  font-weight: $bold;
+}
+
+blockquote {
+  margin: 0;
+}
+
+mark {
+  background: transparent;
+}
+
+address {
+  font-style: normal;
+}
+
+// The content - Everything spat out by WordPress
+.rich-text {
+  max-width: $measure;
+
+  p {
+    a {
+      font-weight: $bold;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    margin: 0 0 $spacer $spacer;
+    li {
+      list-style-type: disc;
+      ul {
+        margin: 0 0 0 $spacer;
+        li {
+          list-style-type: circle;
+        }
+      }
+    }
+  }
+
+  ol {
+    margin: 0 0 $spacer $spacer;
+    li {
+      list-style-type: decimal;
+      ol {
+        margin: 0 0 0 $spacer;
+        li {
+          list-style-type: lower-latin;
+        }
+      }
+    }
+  }
+
+  blockquote {
+    padding: 0 0 0 $spacer2;
+    margin: 0 0 $spacer 0;
+    max-width: $measure;
+    border-left: 3px solid $brand-primary;
+
+    cite:before {
+      content: "\2014\00a0";
+    }
+
+    cite {
+      font-family: $font-family-serif;
+    }
+  }
+
+  figure {
+    margin: 0 0 $spacer 0;
+  }
+
+  hr {
+    height: 3px;
+    background: $medium-grey;
+    margin: $spacer2 0;
+    border: 0;
+  }
+
+  strong {
+    font-weight: $bold;
+  }
+
+  u {
+    text-decoration-skip: edges;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  // Links
+  a {
+    color: $link-colour;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $link-hover-colour;
+  }
+
+  a:visited {
+    color: $link-colour;
+  }
+
+  a:active {
+    color: $base-font-colour;
+    background: $highlight;
+  }
+
+  a:focus {}
+
+}

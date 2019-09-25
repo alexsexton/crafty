@@ -1,0 +1,35 @@
+{#
+# Layout template
+# ---------------
+#
+# This template defines your site’s global layout. It can be
+# “extended” by other templates to fill in the gaps.
+#
+# See Twig’s Template Inheritance documentation for more details:
+# http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+#}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'includes/head.html' %}
+
+<body class="{% if templateName is defined %}{{ templateName }}{% else %}default-layout{% endif %}">
+
+  {% if craft.config.devMode %}
+  <div class="dev-mode">Craft is running in Dev Mode.</div>
+  {% endif %}
+
+  <div class="wrapper group">
+
+    {% include 'includes/header.html' %}
+
+    <main class="main">
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    {% include 'includes/footer.html' %}
+  </div>
+  {% include 'includes/js.html' %}
+</body>
+</html>

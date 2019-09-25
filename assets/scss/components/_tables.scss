@@ -1,0 +1,36 @@
+// Tablular Data
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  caption {
+    caption-side: bottom;
+    text-align: left;
+  }
+
+  th {
+    font-weight: $bold;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 0;
+  }
+
+  thead {
+    text-align: left;
+    th {
+      border-bottom: 1px solid $table-borders;
+    }
+  }
+}
+
+@media screen and (max-width: $small-screen) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
