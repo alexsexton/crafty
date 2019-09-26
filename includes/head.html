@@ -15,9 +15,9 @@
   {% endif %}
 
   <link rel="dns-prefetch" href="">
-  <link rel="stylesheet" href="{{ siteUrl }}static/main.css?v={{ now|date("zB") }}" media="screen">
+  <link rel="stylesheet" href="/static/main.css?v={{ now|date("zB") }}" media="screen">
 
-  <script src="{{ siteUrl }}static/lib/modernizr.min.js"></script>
+  <script src="/static/lib/modernizr.min.js"></script>
 
   <meta property="og:type" content="article">
   {% if entry.title is defined %}
@@ -30,19 +30,7 @@
 
   <meta property="og:site_name" content="{{ siteName }}">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ siteUrl }}static/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="{{ siteUrl }}static/favicon.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="{{ siteUrl }}static/favicon.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="{{ siteUrl }}static/favicon.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="{{ siteUrl }}static/favicon.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="{{ siteUrl }}static/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
 
 </head>
