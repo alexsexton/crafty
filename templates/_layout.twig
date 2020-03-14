@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% include 'includes/head.html' %}
+{% include 'includes/head.twig' %}
 
 <body class="{% if templateName is defined %}{{ templateName }}{% else %}default-layout{% endif %}">
 
@@ -21,15 +21,15 @@
 
   <div class="wrapper group">
 
-    {% include 'includes/header.html' %}
+    {% include 'includes/header.twig' %}
 
     <main class="main">
       {% block content %}
       {% endblock %}
     </main>
 
-    {% include 'includes/footer.html' %}
+    {% include 'includes/footer.twig' %}
   </div>
-  {% include 'includes/js.html' %}
+  {% include 'includes/js.twig' %}
 </body>
 </html>
