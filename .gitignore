@@ -1,0 +1,27 @@
+# Craft3 Ignores #
+
+.DS_Store
+.DS_Store?
+.DS_STORE
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# package.json #
+package-lock.json
+# gulpfile.js #
+/node_modules
+
+/composer.json
+/composer.lock
+
+/craft
+/craft.bat
+/.env
+/.idea
+/config
+/modules
+/vendor
+/storage

@@ -3,6 +3,7 @@
 // Modules
 var gulp = require('gulp')
 var newer = require('gulp-newer')
+var del = require('del')
 
 // Optimise images and SVG
 var imagemin = require('gulp-imagemin')
@@ -13,25 +14,31 @@ var babel = require('gulp-babel')
 var concat = require('gulp-concat')
 var deporder = require('gulp-deporder')
 var stripdebug = require('gulp-strip-debug')
-var uglify = require('gulp-uglify')
+var terser = require('gulp-terser')
 
 // Sass Modules
 var sass = require('gulp-sass')
 var postcss = require('gulp-postcss')
 var assets = require('postcss-assets')
 var autoprefixer = require('autoprefixer')
-var mqpacker = require('css-mqpacker')
 var cssnano = require('cssnano')
 
 var folder = {
-  src: 'assets/',
-  build: '../web/static/'
+  src: 'templates/assets/',
+  build: 'web/static/'
 }
 
 // Change the path below to your main scss file
 var file = {
   scss: 'scss/main.scss'
 }
+
+// Clean - use this task to clean files before watch or run compiles them (fixes the timestamp thing with watch)
+gulp.task('clean', function () {
+  return del([folder.build + 'styles.css', folder.build + 'main.js', folder.build + 'main.min.js'], {
+    force: true
+  })
+})
 
 // image processing
 gulp.task('images', function () {
@@ -53,9 +60,8 @@ gulp.task('svgmin', function () {
 // CSS processing
 gulp.task('css', gulp.series('images', function () {
   var postCssOpts = [
-    assets({ loadPaths: ['assets/'] }),
-    autoprefixer,
-    mqpacker
+    assets({ loadPaths: folder.src }),
+    autoprefixer
   ]
   postCssOpts.push(cssnano)
 
@@ -95,7 +101,7 @@ gulp.task('js', gulp.series('babel', function () {
 
   jsbuild = jsbuild
     .pipe(stripdebug())
-    .pipe(uglify())
+    .pipe(terser())
 
   return jsbuild.pipe(gulp.dest(folder.build))
 }))
