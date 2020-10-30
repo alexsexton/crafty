@@ -1,48 +1,46 @@
 // Gulp (4) configuration
 
 // Modules
-var gulp = require('gulp')
-var newer = require('gulp-newer')
-var del = require('del')
+const gulp = require('gulp')
+const newer = require('gulp-newer')
+
+// Clean
+const del = require('del')
 
 // Optimise images and SVG
-var imagemin = require('gulp-imagemin')
-var svgmin = require('gulp-svgmin')
+const imagemin = require('gulp-imagemin')
+const svgmin = require('gulp-svgmin')
 
 // JS Tasks
-var babel = require('gulp-babel')
-var concat = require('gulp-concat')
-var deporder = require('gulp-deporder')
-var stripdebug = require('gulp-strip-debug')
-var terser = require('gulp-terser')
+const babel = require('gulp-babel')
+const concat = require('gulp-concat')
+const stripdebug = require('gulp-strip-debug')
+const terser = require('gulp-terser')
 
 // Sass Modules
-var sass = require('gulp-sass')
-var postcss = require('gulp-postcss')
-var assets = require('postcss-assets')
-var autoprefixer = require('autoprefixer')
-var cssnano = require('cssnano')
+const sass = require('gulp-sass')
+const postcss = require('gulp-postcss')
+const assets = require('postcss-assets')
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
 
 var folder = {
   src: 'templates/assets/',
   build: 'web/static/'
 }
 
-// Change the path below to your main scss file
-var file = {
-  scss: 'scss/main.scss'
-}
-
-// Clean - use this task to clean files before watch or run compiles them (fixes the timestamp thing with watch)
+// Clean
 gulp.task('clean', function () {
-  return del([folder.build + 'styles.css', folder.build + 'main.js', folder.build + 'main.min.js'], {
-    force: true
-  })
+  return del(folder.build + 'styles.css', folder.build + 'main.js', folder.build + 'main.min.js')
 })
+
+// gulp.task('clean_js', function () {
+//   return del(folder.build + 'main.js', folder.build + 'main.min.js')
+// })
 
 // image processing
 gulp.task('images', function () {
-  var out = folder.build + 'images/'
+  const out = folder.build
   return gulp.src(folder.src + 'images/*')
     .pipe(newer(out))
     .pipe(imagemin({ optimizationLevel: 5 }))
@@ -51,21 +49,21 @@ gulp.task('images', function () {
 
 // SVG min
 gulp.task('svgmin', function () {
-  var out = folder.build + 'images/'
+  const out = folder.build
   return gulp.src(folder.src + 'images/*')
     .pipe(svgmin())
     .pipe(gulp.dest(out))
 })
 
 // CSS processing
-gulp.task('css', gulp.series('images', function () {
-  var postCssOpts = [
-    assets({ loadPaths: folder.src }),
+gulp.task('css', gulp.series('clean', 'images', function () {
+  const postCssOpts = [
+    assets({ loadPaths: ['assets/'] }),
     autoprefixer
   ]
   postCssOpts.push(cssnano)
 
-  return gulp.src(folder.src + file.scss)
+  return gulp.src(folder.src + 'scss/main.scss')
     .pipe(sass({
       outputStyle: 'nested',
       imagePath: 'images/',
@@ -77,26 +75,24 @@ gulp.task('css', gulp.series('images', function () {
 }))
 
 // Babel processing
-gulp.task('babel', function (done) {
+gulp.task('babel', gulp.series(function (done) {
   gulp.src([
     folder.src + 'js/lib/*',
     folder.src + 'js/*'
   ])
     .pipe(babel())
-    .pipe(deporder())
     .pipe(concat('main.js'))
     .pipe(gulp.dest(folder.build))
   done()
-})
+}))
 
 // JavaScript processing
 gulp.task('js', gulp.series('babel', function () {
-  var jsbuild = gulp.src([
+  let jsbuild = gulp.src([
     folder.src + 'js/lib/*',
     folder.src + 'js/main.js'
   ]) // <- Multiple files need to go in an array
     .pipe(babel())
-    .pipe(deporder())
     .pipe(concat('main.min.js'))
 
   jsbuild = jsbuild
@@ -107,7 +103,7 @@ gulp.task('js', gulp.series('babel', function () {
 }))
 
 // run all tasks
-gulp.task('run', gulp.series('images', 'css', 'babel', 'js'))
+gulp.task('run', gulp.series('clean', 'images', 'css', 'babel', 'js'))
 
 // watch for changes
 gulp.task('watch', gulp.series('run', function () {
