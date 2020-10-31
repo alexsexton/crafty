@@ -25,3 +25,20 @@ div, section, header, footer, main, aside {
 .main::after {
     clear: both;
 }
+
+.wrapper {
+  margin: $spacer2;
+  background: $white;
+  padding: $spacer;
+}
+
+.dev-mode {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: $black;
+  padding: $halfspacer;
+  color: $white;
+  text-align: center;
+  width: 100%;
+}
