@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Basic craft starting point",
   "main": "main.js",
+  "type": "module",
   "dependencies": {
     "jquery": "^3.6.0",
     "modern-css-reset": "^1.4.0",
