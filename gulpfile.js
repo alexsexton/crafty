@@ -1,28 +1,31 @@
 // Gulp (4) configuration
 
 // Modules
-const gulp = require('gulp')
-const newer = require('gulp-newer')
+import gulp from 'gulp'
+import newer from 'gulp-newer'
 
 // Clean
-const del = require('del')
+import del from 'del'
 
 // Optimise images and SVG
-const imagemin = require('gulp-imagemin')
-const svgmin = require('gulp-svgmin')
+import imagemin from 'gulp-imagemin'
+import svgmin from 'gulp-svgmin'
 
 // JS Tasks
-const babel = require('gulp-babel')
-const concat = require('gulp-concat')
-const stripdebug = require('gulp-strip-debug')
-const terser = require('gulp-terser')
+import babel from 'gulp-babel'
+import concat from 'gulp-concat'
+import stripdebug from 'gulp-strip-debug'
+import terser from 'gulp-terser'
 
 // Sass Modules
-const sass = require('gulp-sass')
-const postcss = require('gulp-postcss')
-const assets = require('postcss-assets')
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
+import gulpsass from 'gulp-sass'
+import dartsass from 'sass'
+import postcss from 'gulp-postcss'
+import assets from 'postcss-assets'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+
+const sass = gulpsass(dartsass)
 
 var folder = {
   src: 'templates/assets/',
